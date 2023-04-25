@@ -39,7 +39,7 @@ export function Bed(props) {
   return (
     <>
         { modalIsOpen && <ModalWithPlantDetail /> }
-        <h2>Bed {`${id}`}</h2>
+        <h2>{`${bed.name}`}</h2>
         <BedBuilder
           id={parseInt(id)}
           length={bed.length}

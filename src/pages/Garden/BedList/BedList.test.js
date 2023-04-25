@@ -14,7 +14,7 @@ describe("<BedList /> component", () => {
   })
 
   it("renders mock beds", async () => {
-    ;["Bed One", "Bed Two"].forEach(async (string) => {
+    ;["One", "Bed Two"].forEach(async (string) => {
       expect(await screen.findByText(string)).toBeInTheDocument()
     })
   })
