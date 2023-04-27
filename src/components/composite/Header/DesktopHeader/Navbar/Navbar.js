@@ -31,8 +31,6 @@ export function Navbar() {
   return (
     <Nav>
       <NavItem to="/gardens">Gardens</NavItem>
-      <NavItem to="/beds">Beds</NavItem>
-      <NavItem to="/sections">Sections</NavItem>
       <NavItem to="/plants">Plants</NavItem>
       <NavItem to="/profile">Profile</NavItem>
       <NavItem to="/login">

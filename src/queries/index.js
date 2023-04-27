@@ -60,3 +60,12 @@ export const GET_CURRENT_USER = gql`
     }
   }
 `
+export const GET_VARIETIES = gql`
+  query GET_VARIETIES {
+    varieties {
+      id
+      basicType
+      variety
+    }
+  }
+`
