@@ -5,7 +5,16 @@ import "index.css"
 import { useCurrentUser } from "hooks"
 import client from "ApolloClient"
 import { Layout } from "./components/style"
-import { Bed, Beds, Garden, Gardens, Login, Profile, Welcome, Plants } from "./pages"
+import { 
+  Bed, 
+  Beds, 
+  Garden, 
+  Gardens, 
+  Login, 
+  Profile, 
+  Welcome, 
+  Plants, 
+  PlantDetail } from "./pages"
 
 function App() {
   const loggedInUser = useCurrentUser()

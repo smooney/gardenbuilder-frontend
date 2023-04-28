@@ -106,3 +106,23 @@ export const CREATE_GARDEN_MUTATION = gql`
     }
   }
 `
+
+export const CREATE_VARIETY_MUTATION = gql`
+  mutation CREATE_VARIETY_MUTATION($basicType:String!, $variety:String!) {
+    createVariety(basicType: $basicType, variety: $variety) {
+      id
+      basicType
+      variety
+    }
+  }
+`
+
+export const MODIFY_VARIETY_MUTATION = gql`
+  mutation UPDATE_VARIETY_MUTATION($input:UpdateVarietyDetails!) {
+    updateVariety(input: $input) {
+      id
+      basicType
+      variety
+    }
+  }
+`

@@ -1,14 +1,22 @@
 import React from "react"
-import styled from "styled-components"
-import { useCurrentUser } from "hooks"
-import { useQuery } from "@apollo/client"
+import { useMutation, useQuery } from "@apollo/client"
 import { GET_VARIETIES } from "queries"
 import ListWrapper from "components/composite/ListWrapper/ListWrapper"
+import { PlantDetail } from "pages/PlantDetail"
+import { MODIFY_VARIETY_MUTATION } from "mutations"
 
 export function Plants() {
-  const loggedInUser = useCurrentUser()
-
   const { data, loading, error } = useQuery(GET_VARIETIES)
+  
+  const [updateVariety] = useMutation(MODIFY_VARIETY_MUTATION, {
+    onError(err) {
+      console.log(err)
+    },
+    onCompleted(data) {
+      console.log("COMPLETED", data)
+    }
+  })
+  
   if (loading) return <p>Loading...</p>
   if (error) {
     return <p>{error.message}</p>
@@ -16,18 +24,25 @@ export function Plants() {
 
   const varieties = data?.varieties
 
+
   function getVarietyElements(varieties) {
     return varieties.map((variety, index) => {
-      const varietyText = "Plant: " + variety.variety
-
       return (
         <React.Fragment key={index}>
-          <span>{varietyText}</span>
+          <PlantDetail 
+            key={`PD-${index}`}
+            varietyDetails={variety}
+            updateVariety={updateVariety}></PlantDetail>
         </React.Fragment>
       )
     })
   }
 
   const varietiesUI = varieties? getVarietyElements(varieties) : null
-  return <ListWrapper>{varietiesUI}</ListWrapper>
+  return (
+    <>
+      <h2>Plants</h2>
+      <ListWrapper>{varietiesUI}</ListWrapper>
+    </>
+  )
 }
