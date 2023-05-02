@@ -36,11 +36,11 @@ const StyledButton = styled.button`
   }
 `
 
-export function CloseModalButton({ closeModal }) {
-  const StyledTimes = styled(FaTimes)`
-    font-size: 200%;
-  `
+const StyledTimes = styled(FaTimes)`
+  font-size: 200%;
+`
 
+export function CloseModalButton({ closeModal }) {
   return (
     <StyledButton tabindex="0">
       <StyledTimes onClick={closeModal} />
